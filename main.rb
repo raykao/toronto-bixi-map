@@ -1,10 +1,10 @@
 require 'sinatra'
 require 'sinatra/base'
-require 'sinatra/reloader'
 require 'faraday'
 require 'active_support/core_ext/hash'
 require 'json'
 require 'coffee-script'
+require "bundler/setup"
 
 # File.open(latest.json, 'w') {|f| f.write(doc) }
 
