@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'></script>
+  <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.css' rel='stylesheet' />
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+    #nav {
+    	position: fixed;
+    	top: 0;
+    	left: 0;
+    	background-color: #000;
+    	height: 50px;
+    	z-index: 30;
+    	width: 100%;
+    }
+    .marker-image {
+    width:30px;
+    height:35px;
+    margin-left:-15px;
+    margin-top:-17px;
+    pointer-events:all;
+    position:absolute;
+}
+  </style>
+</head>
+<body>
+<div id="nav">
+</div>
+<div id='map'></div>
+<script>
+
+	// Create map
+  var map = mapbox.map('map');
+  map.addLayer(mapbox.layer().id('peopleandcode.map-f9jt13t8'));
+  // Set iniital center and zoom
+  map.centerzoom({
+      lat: 43.655,
+      lon: -79.385
+  }, 14);
+
+  var new_point = [{
+		"geometry": {
+			"type": "Point",
+			"coordinates": [-79.385, 43.655]
+		},
+		"properties": {
+			"city": "Chicago"
+		}
+	}];
+
+	get_bixi_data(function(output){
+		load_bixi_map(output);
+	});
+
+	// window.setInterval(function(){
+	// 	load_bixi_map(new_point);
+	// 	alert('hi');
+	// }, 1000);
+
+	function get_bixi_data(handleData){
+		var x = $.getJSON(
+			"latest.json",
+			function(data) {
+
+				arr = new Array();
+				data = JSON.stringify(data);
+				data = $.parseJSON(data);
+
+				$.each(data.stations.station, function(index, value){
+					arr[index] = {
+						"geometry": {
+							"type": "Point",
+							"coordinates": [value.long, value.lat]
+						},
+						"properties": {
+							"name": value.name,
+							"available": value.nbBikes,
+							"empty": value.nbEmptyDocks,
+						}
+					}
+				});
+				handleData(arr);
+			}
+		);
+	}
+
+	function load_bixi_map(data){
+    // Create and add marker layer
+    var markerLayer = mapbox.markers.layer().features(data).factory(function(f){
+			var img = document.createElement('img');
+			img.className = 'marker-image';
+			img.setAttribute('src', "pin.png");
+			return img;
+    });
+    var interaction = mapbox.markers.interaction(markerLayer);
+    
+    map.addLayer(markerLayer);
+
+    // Set a custom formatter for tooltips
+    // Provide a function that returns html to be used in tooltip
+		interaction.formatter(function(feature) {
+			var tooltip = '<p>' + feature.properties.name + '</p>' +
+			'<p> Bikes Available: ' + feature.properties.available + '</p>' +
+				'<p> Empty Docks: ' + feature.properties.empty + '</p>';
+			return tooltip;
+		});
+	}
+
+
+
+</script>
+</body>
+</html>
