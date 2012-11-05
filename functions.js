@@ -1,5 +1,0 @@
-
-
-function map_station() {
-
-}

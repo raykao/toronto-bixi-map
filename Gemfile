@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
-gem "sinatra", :require => "sinatra/reloader"
-gem "json"
-gem 'active_support', :require => 'active_support/core_ext/hash'
+gem 'sinatra'
+gem 'faraday'
+gem 'active_support'
+gem 'json'
+gem 'coffee-script'
