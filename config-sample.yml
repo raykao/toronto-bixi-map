@@ -1,0 +1,14 @@
+---
+  environment: production
+  chdir: /home/raykao/ruby_projects/sinatra_projects/toronto-bixi-map
+  address: 127.0.0.1
+  user: user_name
+  group: group
+  port: 4567
+  pid: /home/raykao/ruby_projects/sinatra_projects/toronto-bixi-map/tmp/pids/thin.pid
+  rackup: /home/raykao/ruby_projects/sinatra_projects/toronto-bixi-map/config.ru
+  log: /home/raykao/ruby_projects/sinatra_projects/toronto-bixi-map/tmp/logs/thin.log
+  max_conns: 1024
+  timeout: 30
+  max_persistent_conns: 512
+  daemonize: true
