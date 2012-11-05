@@ -48,11 +48,6 @@
 		load_bixi_map(output);
 	});
 
-	// window.setInterval(function(){
-	// 	load_bixi_map(new_point);
-	// 	alert('hi');
-	// }, 1000);
-
 	function get_bixi_data(handleData){
 		var x = $.getJSON(
 			"latest.json",
@@ -72,6 +67,7 @@
 							"name": value.name,
 							"available": value.nbBikes,
 							"empty": value.nbEmptyDocks,
+							"last_update": value.latestUpdateTime
 						}
 					}
 				});
@@ -97,12 +93,11 @@
 		interaction.formatter(function(feature) {
 			var tooltip = '<p>' + feature.properties.name + '</p>' +
 			'<p> Bikes Available: ' + feature.properties.available + '</p>' +
-				'<p> Empty Docks: ' + feature.properties.empty + '</p>';
+				'<p> Empty Docks: ' + feature.properties.empty + '</p>' +
+				'<p><small>Last Updated: ' + properties.last_update + '</small></p>';
 			return tooltip;
 		});
 	}
-
-
 
 </script>
 <script type="text/javascript">

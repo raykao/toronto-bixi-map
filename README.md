@@ -9,3 +9,5 @@ $ thin -s 2 -C config.yml -R config.ru start
 
 ### Stop
 $ thin stop
+
+Working version at [http://bixi.raymondkao.com](http://bixi.raymondkao.com/ "Simple Bixi App - bixi.raymondkao.com").

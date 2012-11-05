@@ -1,0 +1,40 @@
+>> Writing PID to /Users/raykao/ruby_projects/sinatra_projects/toronto-bixi-map/tmp/pids/thin.pid
+>> Changing process privilege to raykao:staff
+== Sinatra/1.3.3 has taken the stage on 4567 for production with backup from Thin
+>> Thin web server (v1.3.1 codename Triple Espresso)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:4567, CTRL+C to stop
+>> Waiting for 1 connection(s) to finish, can take up to 30 sec, CTRL+C to stop now
+>> Thin web server (v1.3.1 codename Triple Espresso)
+>> Maximum connections set to 1024
+>> Listening on 127.0.0.1:4567, CTRL+C to stop
+>> Writing PID to /Users/raykao/ruby_projects/sinatra_projects/toronto-bixi-map/tmp/pids/thin.pid
+>> Changing process privilege to raykao:staff
+== Sinatra/1.3.3 has taken the stage on 4567 for production with backup from Thin
+>> Thin web server (v1.3.1 codename Triple Espresso)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:4567, CTRL+C to stop
+>> Waiting for 1 connection(s) to finish, can take up to 30 sec, CTRL+C to stop now
+>> Thin web server (v1.3.1 codename Triple Espresso)
+>> Maximum connections set to 1024
+>> Listening on 127.0.0.1:4567, CTRL+C to stop
+>> Writing PID to /Users/raykao/ruby_projects/sinatra_projects/toronto-bixi-map/tmp/pids/thin.pid
+>> Changing process privilege to raykao:staff
+== Sinatra/1.3.3 has taken the stage on 4567 for production with backup from Thin
+>> Thin web server (v1.3.1 codename Triple Espresso)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:4567, CTRL+C to stop
+>> Stopping ...
+
+== Sinatra has ended his set (crowd applauds)
+>> Thin web server (v1.3.1 codename Triple Espresso)
+>> Maximum connections set to 1024
+>> Listening on 127.0.0.1:4567, CTRL+C to stop
+127.0.0.1 - - [04/Nov/2012 21:27:16] "GET / HTTP/1.1" 404 18 0.0007
+127.0.0.1 - - [04/Nov/2012 21:27:16] "GET /favicon.ico HTTP/1.1" 404 18 0.0006
+127.0.0.1 - - [04/Nov/2012 21:27:17] "GET / HTTP/1.1" 404 18 0.0006
+127.0.0.1 - - [04/Nov/2012 21:27:17] "GET /favicon.ico HTTP/1.1" 404 18 0.0007
+>> Stopping ...
+
+== Sinatra has ended his set (crowd applauds)
+>> Exiting!
